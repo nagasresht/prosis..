@@ -1,3 +1,4 @@
+from sqlalchemy import null
 import torch
 from PIL import Image
 import numpy as np
@@ -31,6 +32,8 @@ transform = transforms.Compose([
                          [0.229,0.224,0.225])
 ])
 
+# null_tensor = torch.zeros(1, device=device)
+    
 def predict(image):
     img = smart_roi_crop(image)
     x = transform(img).unsqueeze(0)
